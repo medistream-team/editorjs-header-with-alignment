@@ -1,6 +1,6 @@
 {
-  "name": "editorjs-header-with-alignment",
-  "version": "1.0.1",
+  "name": "@medistream/editorjs-header-with-alignment",
+  "version": "1.1.0",
   "keywords": [
     "codex editor",
     "header",
@@ -10,15 +10,15 @@
   ],
   "description": "Header Tool With Alignment for Editor.js",
   "license": "MIT",
-  "repository": "wandersonsousa/header-with-alignment",
+  "repository": "https://github.com/medistream-team/editorjs-header-with-alignment",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch"
   },
   "author": {
-    "name": "WanderCoder",
-    "email": "wandersoncoder@gmail.com"
+    "name": "medistream.team",
+    "email": "medistream.team@gmail.com"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

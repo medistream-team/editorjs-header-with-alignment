@@ -51,7 +51,8 @@
    Read more in Tool's README file. For example:
    https://github.com/editor-js/header#installation
    -->
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.18.0/dist/editor.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.18.0/dist/editor.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
     <script src="../dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script>
     <!-- Header -->
 
@@ -111,8 +112,9 @@
         onReady: function () {
           saveButton.click();
         },
-        onChange: function () {
-          console.log("something changed");
+        onChange: async function (api) {
+          const content = await api.saver.save()
+          console.log(content)
         },
       });
 
