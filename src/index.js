@@ -116,6 +116,37 @@ class Header {
     this._element = this.getTag();
   }
 
+  $renderSettings() {
+    const buttons = this.inlineToolSettings
+      .map((tune) => {
+        /**
+         * buttonのdomを作成して、alignのtoggleをactiveに設定する
+         * @type {HTMLDivElement}
+         */
+        const button = document.createElement("div");
+        button.classList.add(this._CSS.settingsButton);
+        button.classList.toggle(this.CSS.settingsButtonActive, tune.name === this.data.alignment);
+        button.innerHTML = tune.icon;
+
+        return button;
+      })
+
+    buttons.forEach((element, index, elements) => {
+        element.addEventListener("click", () => {
+          this._toggleTune(this.inlineToolSettings[index].name);
+
+          elements.forEach((el, i) => {
+            const { name } = this.inlineToolSettings[i];
+            el.classList.toggle(this.CSS.settingsButtonActive, name === this.data.alignment);
+            //headerのdivにalignmentのclassをつける。
+            this._element.classList.toggle(this._CSS.alignment[name], name === this.data.alignment);
+          });
+        });
+      });
+
+    window.$pluginMethods = buttons;
+  }
+
   /**
    * Normalize input data
    *
